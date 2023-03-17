@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - shell: bash
-        run: echo $BASE_REF
+        run: echo $GITHUB_BASE_REF
