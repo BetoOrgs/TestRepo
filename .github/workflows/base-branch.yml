@@ -1,0 +1,10 @@
+name: "Show base branch"
+on:
+  - pull_request
+jobs:
+  show-secrets:
+    name: "Show base branch"
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: echo $BASE_REF
