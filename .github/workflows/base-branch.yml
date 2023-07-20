@@ -1,6 +1,6 @@
 name: "Show base branch"
 on:
-  - pull_request
+  - push
 jobs:
   show-secrets:
     name: "Show base branch"
@@ -8,3 +8,13 @@ jobs:
     steps:
       - shell: bash
         run: echo $GITHUB_BASE_REF
+  show-selected-secret:
+    if: ${{ vars.env == "PROD" }}
+    name: "Show secret based off."
+    run: |
+      echo "PROD variable"
+  show-selected-secret:
+    if: ${{ vars.env != "PROD" }}
+    name: "Show secret based off."
+    run: |
+      echo "DEV variable"
