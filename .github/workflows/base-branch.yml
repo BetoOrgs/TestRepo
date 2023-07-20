@@ -8,13 +8,17 @@ jobs:
     steps:
       - shell: bash
         run: echo $GITHUB_BASE_REF
-      show-prod:
-        if: ${{ vars.env == "PROD" }}
-        name: "Show secret based off."
+  show-prod:
+    if: ${{ vars.env == "PROD" }}
+    name: "Show secret based off."
+    steps:
+      - shell: bash
         run: |
           echo "PROD variable"
-      show-dev:
-        if: ${{ vars.env != "PROD" }}
-        name: "Show secret based off."
+  show-dev:
+    if: ${{ vars.env != "PROD" }}
+    name: "Show secret based off."
+    steps:
+      - shell: bash
         run: |
           echo "DEV variable"
