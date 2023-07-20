@@ -2,14 +2,8 @@ name: "Show base branch"
 on:
   - push
 jobs:
-  show-secrets:
-    name: "Show base branch"
-    runs-on: ubuntu-latest
-    steps:
-      - shell: bash
-        run: echo $GITHUB_BASE_REF
   show-prod:
-    if: ${{ vars.env == "PROD" }}
+    if: ${{ vars.SITE_ENV == 'PROD' }}
     runs-on: ubuntu-latest
     name: "Show secret based off."
     steps:
@@ -17,7 +11,7 @@ jobs:
         run: |
           echo "PROD variable"
   show-dev:
-    if: ${{ vars.env != "PROD" }}
+    if: ${{ vars.SITE_ENV != 'PROD' }}
     runs-on: ubuntu-latest
     name: "Show secret based off."
     steps:
