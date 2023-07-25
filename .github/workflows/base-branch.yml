@@ -9,6 +9,6 @@ jobs:
       JOB_ENV: ${{ vars.SITE_ENV == 'PROD' && 'prod' || 'dev' }}
       SITE_ENV: ${{ vars.SITE_ENV == 'PROD' && secrets.PROD || secrets.DEV }}
     steps:
-      - uses: mscoutermarsh/cowsays-action@master
+      - uses: mscoutermarsh/ascii-art-action@master
         with:
           text: ${{ env.SITE_ENV }}
