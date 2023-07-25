@@ -3,14 +3,11 @@ on:
   - push
 jobs:
   show-prod:
-    runs-on: ubuntu-latest
     name: "Show secret based off."
     env:
       JOB_ENV: ${{ vars.SITE_ENV == 'PROD' && 'prod' || 'dev' }}
       SITE_ENV: ${{ vars.SITE_ENV == 'PROD' && secrets.PROD || secrets.DEV }}
+    uses: mscoutermarsh/ascii-art-action@master
     with:
       environment: ${{ env.JOB_ENV }}
-    steps:
-      - shell: bash
-        run: |
-          echo "$SITE_ENV variable"
+      text: ${{ env.SITE_ENV }}
