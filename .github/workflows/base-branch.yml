@@ -3,18 +3,11 @@ on:
   - push
 jobs:
   show-prod:
-    if: ${{ vars.SITE_ENV == 'PROD' }}
     runs-on: ubuntu-latest
     name: "Show secret based off."
+    env:
+      SITE_ENV: ${{ vars.SITE_ENV == 'PROD' && "PROD" || "DEV" }}
     steps:
       - shell: bash
         run: |
-          echo "PROD variable"
-  show-dev:
-    if: ${{ vars.SITE_ENV != 'PROD' }}
-    runs-on: ubuntu-latest
-    name: "Show secret based off."
-    steps:
-      - shell: bash
-        run: |
-          echo "DEV variable"
+          echo "$SITE_ENV variable"
