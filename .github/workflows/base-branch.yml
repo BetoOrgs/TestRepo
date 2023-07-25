@@ -4,6 +4,7 @@ on:
 jobs:
   show-prod:
     name: "Show secret based off."
+    runs-on: ubuntu-latest
     env:
       JOB_ENV: ${{ vars.SITE_ENV == 'PROD' && 'prod' || 'dev' }}
       SITE_ENV: ${{ vars.SITE_ENV == 'PROD' && secrets.PROD || secrets.DEV }}
