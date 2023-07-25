@@ -11,5 +11,4 @@ jobs:
     steps:
       - uses: mscoutermarsh/cowsays-action@master
         with:
-          environment: ${{ env.JOB_ENV }}
           text: ${{ env.SITE_ENV }}
