@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Show secret based off."
     env:
-      SITE_ENV: ${{ vars.SITE_ENV == 'PROD' && "PROD" || "DEV" }}
+      SITE_ENV: ${{ vars.SITE_ENV == 'PROD' && 'PROD' || 'DEV' }}
     steps:
       - shell: bash
         run: |
